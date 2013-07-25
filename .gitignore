@@ -1,6 +1,7 @@
 #OS Specific files
 .directory
 .DS
+__MACOSX
 .kdev4/
 *.kdev4
 
