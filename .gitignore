@@ -6,3 +6,6 @@
 
 #Ignore KDE's backup files
 *~ 
+
+#Blender's cache folder
+__pycache__
