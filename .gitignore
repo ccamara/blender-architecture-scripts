@@ -1,0 +1,8 @@
+#OS Specific files
+.directory
+.DS
+.kdev4/
+*.kdev4
+
+#Ignore KDE's backup files
+*~ 
