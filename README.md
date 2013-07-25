@@ -1,4 +1,4 @@
-blender-architecture-scripts
+Blender architecture scripts
 ============================
 
 This repo contains a collection of Blender scripts and plugins specially useful for architecture. 
@@ -8,4 +8,4 @@ This repo serves these main purposes:
 2. Provide a backup or a time-proof repository which don't rely on 3rd pary (I've been always concerned that those scripts could be lost sometime).
 3. Benefit from Git and github's social features in order to make it easier to collaborate and improve plugins.
 
-All credits go to each plugins' authors.
+All credits go to each script's authors.
