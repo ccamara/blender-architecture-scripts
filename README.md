@@ -8,4 +8,5 @@ This repo serves these main purposes:
 2. Provide a backup or a time-proof repository which don't rely on 3rd pary (I've been always concerned that those scripts could be lost sometime).
 3. Benefit from Git and github's social features in order to make it easier to collaborate and improve plugins.
 
-All credits go to each script's authors.
+
+Please note that this doesn't mean that all these addons and scripts are necesarilly going to be mantained. This responsability, as well as their credits relies on each script's authors and mantainers.
