@@ -10,3 +10,9 @@ This repo serves these main purposes:
 
 
 Please note that this doesn't mean that all these addons and scripts are necesarilly going to be mantained. This responsability, as well as their credits relies on each script's authors and mantainers.
+
+[Visit this wiki page](https://github.com/ccamara/blender-architecture-scripts/wiki/List-of-available-addons) to see all the information regarding to the addons that have been included on this repo.
+
+### Instructions
+
+We provide two different ways to use this repo: Using git (for advanced users)
