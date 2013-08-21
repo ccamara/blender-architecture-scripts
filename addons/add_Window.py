@@ -1,7 +1,7 @@
 bl_info = {
     "name": "Window Generator 2",
     "author": "SayPRODUCTIONS",
-    "version": (2, 0),
+    "version": (2, 1),
     "blender": (2, 6, 3),
     "api": 33333,
     "location": "View3D > Add > Mesh > Say3D",
@@ -12,7 +12,7 @@ bl_info = {
     "category": "Add Mesh"}
 import bpy
 from bpy.props import *
-from math import pi, sin, cos, sqrt
+from math import pi, sin, cos, sqrt, radians
 def MAT(AD,R,G,B):
     if AD not in bpy.data.materials:
         mtl=bpy.data.materials.new(AD)
@@ -158,7 +158,7 @@ def add_object(self, context):
         for i in range(0,mx*4+2,2):fc.extend([[z+i+Y+0,z+i+Y+2,z+i+Y+V+4,z+i+Y+V+2],[z+i+Y  +3,z+i+Y  +1,z+i+Y+V+3,z+i+Y+V+5]])
         for i in range(0,mx*4-3,4):fc.extend([[z+i+Y+2,z+i+Y+3,z+i+Y  +5,z+i+Y  +4],[z+i+Y+V+5,z+i+Y+V+4,z+i+Y+V+6,z+i+Y+V+7]])
     #Dikey
-    for Y in range(0,my):    
+    for Y in range(0,my):
         z=Y*(mx*4+4)*2
         for i in range(0,mx*4+2,4):fc.extend([[z+i+1,z+i+0,z+i+V+2,z+i+V+3],[z+i+3,z+i+1,z+i+V+3,z+i+V+5],[z+i+2,z+i+3,z+i+V+5,z+i+V+4],[z+i+0,z+i+2,z+i+V+4,z+i+V+2]])
     #Fitil-------------------
@@ -249,7 +249,7 @@ def add_object(self, context):
         y=my-1
         for x in range(0,mx):
             if  kx[x][y]==True:
-                fr=(k1+k2)*0.5-0.01;ek=k2                
+                fr=(k1+k2)*0.5-0.01;ek=k2
                 R=C-k1;K=R-k2
 
                 x1=X[x*2+1];x2=X[x*2+2]
@@ -329,7 +329,7 @@ def add_object(self, context):
             vr.extend([[x2,fr-0.005,sqrt(K**2-x2**2)+z],[x2,fr+0.005,sqrt(K**2-x2**2)+z]])
             n=len(vr);ON.extend([n-1,n-3,n-5,n-7]);AR.extend([n-2,n-4,n-6,n-8])
             fc.append(ON);AR.reverse();fc.append(AR)
-            m=len(fc);cam.extend([m-1,m-2])        
+            m=len(fc);cam.extend([m-1,m-2])
 
     elif self.UST=='3':#Egri
         if   self.DT3=='1':H=(self.VL1/200)/u
@@ -620,7 +620,8 @@ def add_object(self, context):
         mesh.polygons[i].use_smooth = 1
     mesh.update(calc_edges=True)
     from bpy_extras import object_utils
-    return object_utils.object_data_add(context, mesh, operator=None)
+    object_utils.object_data_add(context, mesh, operator=None)
+    return mesh.name
     if  bpy.context.mode!='EDIT_MESH':
         bpy.ops.object.editmode_toggle()
         bpy.ops.object.editmode_toggle()
@@ -705,6 +706,12 @@ class PENCERE(bpy.types.Operator):
     k42=BoolProperty(name='',default=False);k43=BoolProperty(name='',default=False)
     k44=BoolProperty(name='',default=False);k45=BoolProperty(name='',default=False)
     k46=BoolProperty(name='',default=False);k47=BoolProperty(name='',default=False)
+    rotationPropX=IntProperty(name='',min=0,max=360,default= 0,description='Window Rotation X')
+    rotationPropY=IntProperty(name='',min=0,max=360,default= 0,description='Window Rotation Y')
+    rotationPropZ=IntProperty(name='',min=0,max=360,default= 0,description='Window Rotation Z')
+    locationPropX=FloatProperty(name='',min=-10000,max=10000,default= 0,description='Window Location X')
+    locationPropY=FloatProperty(name='',min=-10000,max=10000,default= 0,description='Window Location Y')
+    locationPropZ=FloatProperty(name='',min=-10000,max=10000,default= 0,description='Window Location Z')
     #--------------------------------------------------------------
     def draw(self, context):
         layout = self.layout
@@ -745,11 +752,28 @@ class PENCERE(bpy.types.Operator):
             row.prop(self,'gny'+str(self.yuk-j-1))
             for i in range(0,self.gen):
                 row.prop(self,'k'+str(self.yuk-j-1)+str(i))
+        row =layout.row()
+        box.row();row.label('X');row.label('Y');row.label('Z')
+        row =layout.row()
+        row.label("Rotation")
+        row =layout.row()
+        box.row();row.prop(self,'rotationPropX');row.prop(self,'rotationPropY');row.prop(self,'rotationPropZ')
+        row =layout.row()
+        row.label("Location")
+        row =layout.row()
+        box.row();row.prop(self,'locationPropX');row.prop(self,'locationPropY');row.prop(self,'locationPropZ')
+
     def execute(self, context):
         if self.son!=self.prs:
             Prs(self)
             self.son=self.prs
-        add_object(self,context)
+        name = add_object(self,context)
+        bpy.data.objects[name].rotation_euler[0] = radians(self.rotationPropX)
+        bpy.data.objects[name].rotation_euler[1] = radians(self.rotationPropY)
+        bpy.data.objects[name].rotation_euler[2] = radians(self.rotationPropZ)
+        bpy.data.objects[name].location[0] = bpy.context.scene.cursor_location[0] + self.locationPropX
+        bpy.data.objects[name].location[1] = bpy.context.scene.cursor_location[1] + self.locationPropY
+        bpy.data.objects[name].location[2] = bpy.context.scene.cursor_location[2] + self.locationPropZ
         return {'FINISHED'}
 # Registration
 def menu_func_pencere(self, context):
