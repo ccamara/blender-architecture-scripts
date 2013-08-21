@@ -15,4 +15,15 @@ Please note that this doesn't mean that all these addons and scripts are necesar
 
 ### Instructions
 
-We provide two different ways to use this repo: Using git (for advanced users)
+We provide two different ways to use this repo: basic usage (no git knowledge required) and advanced usage for those who want to benefit from all git's features.
+
+####Basic usage
+
+1. Download this repo's content from the [download link](https://github.com/ccamara/blender-architecture-scripts/archive/master.zip)
+2. Extract it into your blender's scripts' folder (this may be different depending on your operating system, so if in doubt, please check [this page](http://wiki.blender.org/index.php/Doc:2.6/Manual/Extensions/Python/Add-Ons) to know where should you place them)
+3. Enable the desired plugin from Blender's properties' dialog box.
+
+####Advanced usage
+
+1. Navigate to your blender's scripts' folder
+2. Clone this repo using the following command: ```git clone git@github.com:ccamara/blender-architecture-scripts.git```
