@@ -27,8 +27,9 @@ We provide two different ways to use this repo: basic usage (no git knowledge re
 
 1. Navigate to your blender's scripts' folder
 2. Clone this repo using the following command: ```git clone git@github.com:ccamara/blender-architecture-scripts.git```
-3. In case you want to update your local code from the latest code from this repo you can use the following command `git pull`
-4. 
+3. In case you want to update your local code from the latest code from this repo you have to execute the following commands 
+4. `git pull` to retrieve all the files (Except all the files cloned from other repositories.
+4. Since this repo uses gitsubmodules you'll have to perform some extra commands: `git submodule init` and then `git submodule update`
 
 ##More information/help
 If you have doubts you can always read the [repo's wiki page](https://github.com/ccamara/blender-architecture-scripts/wiki) or check our [issue queue](https://github.com/ccamara/blender-architecture-scripts/issues)
