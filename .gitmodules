@@ -1,3 +1,6 @@
 [submodule "addons/sverchok"]
 	path = addons/sverchok
 	url = https://github.com/nortikin/sverchok.git
+[submodule "addons/object_assembler"]
+	path = addons/object_assembler
+	url = https://github.com/ni-ko-o-kin/object_assembler.git
