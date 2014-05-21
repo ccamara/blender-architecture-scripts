@@ -4,9 +4,11 @@
 __MACOSX
 .kdev4/
 *.kdev4
+.idea
 
 #Ignore KDE's backup files
 *~ 
 
 #Blender's cache folder
 __pycache__
+
