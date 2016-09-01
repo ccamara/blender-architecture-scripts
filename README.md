@@ -20,7 +20,7 @@ We provide two different ways to use this repo: basic usage (no git knowledge re
 ###Basic usage
 
 1. Download this repo's content from the [download link](https://github.com/ccamara/blender-architecture-scripts/archive/master.zip)
-2. Extract it into your blender's scripts' folder (this may be different depending on your operating system, so if in doubt, please check [this page](http://wiki.blender.org/index.php/Doc:2.6/Manual/Extensions/Python/Add-Ons) to know where should you place them)
+2. Extract it into your blender's scripts' folder (this may be different depending on your operating system, so if in doubt, please check [this page](https://www.blender.org/manual/getting_started/installing/configuration/directories.html) to know where should you place them)
 3. Enable the desired plugin from Blender's properties' dialog box.
 
 ###Advanced usage
