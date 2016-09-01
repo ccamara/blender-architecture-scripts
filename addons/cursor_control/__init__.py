@@ -17,8 +17,6 @@
 #
 # ##### END GPL LICENSE BLOCK #####
 
-
-
 # Blender Add-Ons menu registration (in User Prefs)
 bl_info = {
     'name': 'Cursor Control',
@@ -28,12 +26,10 @@ bl_info = {
     'api': 39307,
     'location': 'View3D > Properties > Cursor',
     'description': 'Control the Cursor',
-    'warning': '', # used for warning icon and text in addons panel
+    'warning': '',  # used for warning icon and text in addons panel
     'wiki_url': 'http://blenderpythonscripts.wordpress.com/',
     'tracker_url': '',
     'category': '3D View'}
-
-
 
 import bpy
 
